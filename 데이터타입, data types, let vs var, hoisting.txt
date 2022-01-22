@@ -1,0 +1,75 @@
+'use strict';
+
+
+
+
+let globaName = 'global name'; //block scope밖에 선언한 변수는 block scope안이든 block scope밖이든 어디든지 출력가능
+/*glpbal var은 어플리케이션 실행후 항상 메모리에 있기 때문에 꼭필요한 경우에만 최소한으로 쓰는 것이 좋음
+ex) for class if 등등 
+
+*/
+{ //block scope 안에 있는 것은 안에서만 출력 가능
+let name = 'son'; //son이라는 것을 담는 변수 name
+console.log(name); //출력 
+name = 'hello';  //다시 name에 hello라는 변수를 할당
+console.log(name); //name 출력 hello
+console.log(globaName); //출력  global name (block scope안에서 변수 출력)
+}
+console.log(name); //출력 global name (block scope밖에서 변수 출력)
+
+//hoisting (변수를 파일 가장 위에 선언하는것)
+
+//constant
+//const = static이랑 비슷함
+//보안문제 때문에 const를 사용하는게 좋음
+
+//Variable types
+//종류 : primitive, single item : number, string, boolean, null, undefien, symbol, object, box container
+//function, first-class function
+
+const count = 17;
+const size=17.1;
+console.log(`value: ${count}, type: ${typeof count}`); // console.log 실행 ${count}=count변수의 값  ${typeof count} =count변수의 타입 출력형태 value: 17, type: number
+console.log(`value: ${count}, type: ${typeof count}`); 
+
+const infinity = 1/0;  //숫자를 0으로 나누면 출력결과는 Infinity
+const negativeInfinity = 1/0; //출력결과는 -Infinity
+const nAn = 'not a number'/0;  //string 나누기 정수는 NaN 즉 정수가 아닌 데이터 타입에서 정수를 나누면 NaN으로 출력
+console.log(infinity);
+console.log(negativeInfinity);
+console.log(nAn);
+
+//string
+const char = 'c'; //자바스크립트는 자바와 다르게 한글자든 여러글자든 string으로 데이터 타입이 결정됨
+const brendan = 'brendan';
+const greeting = 'hello' + brendan;
+console.log(`value: ${greeting}, type: ${typeof greeting}`); // 출력결과 value: hello brendan type: string 
+//``쓰는 이유 +를 사용할 필요없이     ``내부에 있는 공백들을 전부 포함해서 출력해줌
+
+//boolean
+//false : 0, null, undefined, Nan;
+//true: any other value;
+const canRead = true;
+const test = 3<1; //false
+console.log(`value: ${canRead}, type: ${typeof canRead}`); //출력형태 value: true type: boolean
+
+//null
+let nothing = null;
+console.log(`value: ${nothing}, type: ${typeof nothing}`); //출력형태 value: null type: object null타입은 object
+
+const symbol1 = Symbol('id');
+const symbol2 = Symbol('id');
+console.log(symbol === symbol2); //false
+
+const symbol1 = Symbol.for('id');
+const symbol2 = Symbol.for('id');
+console.log(symbol === symbol2); //true
+console.log(`value: ${symbol1.description}, type: ${typeof Symbol}`); //symbol은 출력할때description으로 string형태로 바꾼후에 출력하지 않으면 에러남
+
+//5.Dynamic typing : dynamically typed language
+//c나 java는 타입을 선언할때 데이터 타입을 같이 선언해야 하지만 javascript는 프로그램이 동작할때 자동으로 데이터 타입이 결정난다
+
+//object, real-life object, data structure
+const son ={name : 'son', age:20}; //객체생성후 그 만든 메모리 공간에name 과 age 변수를 선언하고 son 과 age를 넣는다
+
+
