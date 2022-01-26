@@ -1,0 +1,65 @@
+// 1. String concatenation
+console.log('my'+'cat'); //출력결과 my cat
+console.log('1'+ 2); //출력결과 12
+console.log(`string literals : 1 + 2 = ${1 + 2}`); //출력결과 1 + 2 = 3
+
+
+//2. Numberic operators
+console.log(2 ** 3); //n승
+
+//3.Increment and decrement operators
+let counter = 2;
+const preIncrement = ++counter;
+console.log(`preIncrement: ${preIncrement}, counter:${counter}`); //출력결과 preIncrement: 3 counter: 3
+
+//4. Assignment operators
+let x =3;
+let y =6;
+
+x+=y;  // x= x+y;
+x-=y;   
+x*=y;
+x/=y;
+
+//6. Logical operators: || (or), &&(and) !(not)
+const value = true;
+const value = 4 < 2;
+
+console.log(`or: ${value1 || value2 || check()}`); // value1이 true라면 컴파일러가 value2에 가지 않고 바로 true라고 출력시켜버리기 때문에 단순한변수 value1을 앞에 두고 check()함수 (메모리를 가장 많이 사용하는것)을 뒤에다가 두는 것이 좋다
+
+function check(){
+    for (let i = 0; i<10;i++){
+        console.log('good');
+    }
+    return true;
+}
+
+//7. Equality
+const stringFive = '5';
+const numberFive = 5;
+
+//== loose equality, with type conversion 데이터 타입에 상관없이 데이터 값이 일치하는가의 여부만 따짐
+console.log(stringFive == numberFive); //false
+console.log(stringFive != numberFive); //true
+
+
+//=== loose equality, with type conversion 데이터 타입의 일치까지 따짐
+console.log(stringFive === numberFive); // false
+console.log(stringFive !== numberFive); // true
+
+// object equality by reference
+const son1 = {name : 'son'};
+const son2 = {name : 'son'};
+const son3 = son1;
+console.log(son1 == son2);  //false
+console.log(son1 === son2); //false
+console.log(son1 = son3);  //true
+
+//8. Ternary operator: ?
+const name = 'son';
+console.log(name=== 'son' ? 'yes' : 'no'); //name이 son 이라면 yes를 아니면 no를 출력
+
+
+
+
+
