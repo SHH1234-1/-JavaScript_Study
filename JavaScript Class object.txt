@@ -1,0 +1,114 @@
+'use strict';
+
+// 1. Class declarations
+
+class Person {
+    //constructor
+    constructor(name, age){ //parameter
+    //fields
+    this.name = name;
+    this.age = age;
+    }
+    // methods
+    speak(){
+        console.log(`${this.name}: hello`);
+    }
+}
+
+const son = new Person('son', 20); //객체생성
+console.log(son.name);
+console.log(son.age);
+son.speak();
+
+//2.Getter and setters
+class User{
+    constructor(firstName, lastName, age){ 
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this._age = age; //-1이 age에 들어가지 않고 setter age의 value파라메터 값으로 받고
+    }
+
+    get age(){
+        return this.age; //반환
+    }
+
+    set age(value){ //파라메터값-1
+        this._age = value < 0? 0: value; //value(=-1)이 0보다 작으면 0을 0보다 크다면 value값을 this._age에 저장하고 
+    }
+}
+
+const user1 = new User('Steve', 'job', -1); //Getter와 Setter를 만들면 -1이
+console.log(user1.age);
+
+//3.Fields (public private)
+class Experiment {
+    publicField =2;
+    #privateField = 0;
+}
+const experiment = new Experiment(); //객체생성
+console.log(experiment.publicField);; //public
+console.log(experiment.privateField); //private
+
+//4. Static properties and methods
+class Article {
+    static publisher = 'Son Coding';
+    constructor(articleNumber) {
+        this.articleNumber = articleNumber;
+    }
+
+    static printPublisher(){
+        console.log(Article.publisher);
+    }
+}
+
+const article1 = new Article(1);
+const article2 = new Article(2);
+console.log(Article.publisher); //static은 클래스 내부에 있는 것이기 때문에 article1 (객체명)으로 출력하는 것이아니라 Article(클래스명)으로 출력해야함
+Article.printPublisher();
+
+//5. Inheritance
+class Shape {
+    constructor(width, height, color) {
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+
+    draw(){
+        console.log(`drawing ${this.color} color of`);
+    }
+
+    getArea(){
+        return width * this.height;
+    }
+
+}
+
+class Rectangle extends Shape{
+    draw(){ //오버라이딩
+        super.draw(); //부모클래스 메소드 불러오기
+        console.log(`Overriding draw`);
+    }
+}
+class Triangel extends Shape{
+    getArea(){
+        return width * this.height /2; //오버라이딩
+    }
+}
+const rectangle = new Rectangle(20, 20, 'blue');   
+rectangle.draw();
+console.log(rectangle.getArea());  
+const triangle = new Triangel(20,20,'red');
+triangle.draw();
+console.log(rectangle.getArea());
+
+//6.Class checking: instanceof
+console.log(rectangle instanceof Rectangle);
+console.log(triangle instanceof Rectangle);
+console.log(rectangle instanceof Triangel);
+console.log(triangle instanceof Shape); //상속받은 클래스라 true
+console.log(triangle instanceof Object);
+
+
+
+
